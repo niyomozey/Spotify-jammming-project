@@ -9,9 +9,9 @@ class Track extends React.Component{
     }
   renderAction(){
     if(this.props.isRemoval){
-      return <button className="Track-action" onClick={this.removeTrack}>-</button>
+      return <button className="border border-gray-700 rounded-full hover:bg-red-800 py-1 px-10 text-white" onClick={this.removeTrack}>Remove</button>
     }else{
-      return <button className="Track-action" onClick={this.addTrack}>+</button>
+      return <button className="border border-gray-700 rounded-full hover:bg-zinc-800 py-1 px-10 text-white" onClick={this.addTrack}>Add</button>
     }
   }
 
@@ -24,15 +24,16 @@ class Track extends React.Component{
 
   render(){
     return(
-      <div className="Track">
-        <div className="Track-information">
-          {/* <h3><!-- track name will go here --></h3> */}
-          <h3>{this.props.track.name}</h3>
-          {/* <p><!-- track artist will go here--> | <!-- track album will go here --></p> */}
-          <p>{this.props.track.artist} | {this.props.track.album}</p>
-        </div>
-        {/* <button class="Track-action"><!-- + or - will go here --></button> */}
-        {this.renderAction()}
+      <div className="Track  rounded bg-zinc-900 my-8">
+        <div className='w-5/6 py-1 mx-auto flex flex-row'>
+          <div className="Track-information w-2/3">
+            <h3>{this.props.track.name}</h3>
+            <p>{this.props.track.artist} | {this.props.track.album}</p>
+          </div>
+          <div className='Track-information w-1/3'>
+            {this.renderAction()}
+          </div>
+        </div>        
       </div>
     )
   }

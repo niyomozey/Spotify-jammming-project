@@ -1,13 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './Components/App/App';
 import reportWebVitals from './reportWebVitals';
+import { legacy_createStore as createStore} from 'redux'
+import { Provider } from 'react-redux'
+import App from './Components/App/App';
+import CreatePlayList from './Components/CreatePlayList/CreatePlayList';
+import DisplayPlaylist from './Components/Playlist/DisplayPlaylist';
+import Playback from './Components/Playback/Playback';
+import Home from './Components/Home/Home';
+import rootReducer from './Reducers/rootReducer';
 
+
+const store = createStore(rootReducer , [])
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  // <React.StrictMode>
+    <Provider store={store}>
+      {/* <App /> */}
+      <Home/>
+      {/* <CreatePlayList/> */}
+      {/* <DisplayPlaylist/> */}
+      {/* <Playback/> */}
+    </Provider>,
+  // </React.StrictMode>,
   document.getElementById('root')
 );
 
